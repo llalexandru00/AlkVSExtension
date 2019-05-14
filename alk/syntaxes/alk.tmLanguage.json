@@ -1,0 +1,98 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Alk",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.alk",
+				"match": "\\b(if|else|while|in|for|do|forall|return|out|choose|uniform|repeat|success|until|failure)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.alk",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.alk",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments":
+		{
+			"patterns":[
+			
+				{
+				  "captures":
+				  {
+					"1":
+					{
+					  "name":"meta.toc-list.banner.block.c"
+					}
+				  },
+				  "match":"^/\\* =(\\s*.*?)\\s*= \\*/$\\n?",
+				  "name":"comment.block.c"
+				},
+				{
+				  "begin":"/\\*",
+				  "captures":
+				  {
+					"0":
+					{
+					  "name":"punctuation.definition.comment.c"
+					}
+				  },
+				  "end":"\\*/",
+				  "name":"comment.block.c"
+				},
+				{
+				  "match":"\\*/.*\\n",
+				  "name":"invalid.illegal.stray-comment-end.c"
+				},
+				{
+				  "captures":
+				  {
+					"1":
+					{
+					  "name":"meta.toc-list.banner.line.c"
+					}
+				  },
+				  "match":"^// =(\\s*.*?)\\s*=\\s*$\\n?",
+				  "name":"comment.line.banner.c++"
+				},
+				{
+				  "begin":"//",
+				  "beginCaptures":
+				  {
+					"0":
+					{
+					  "name":"punctuation.definition.comment.c"
+					}
+				  },
+				  "end":"$\\n?",
+				  "name":"comment.line.double-slash.c++",
+				  "patterns":[
+					
+					{
+					  "match":"(?>\\\\\\s*\\n)",
+					  "name":"punctuation.separator.continuation.c++"
+					}
+				  ]
+				}
+			]
+		}
+	},
+	"scopeName": "source.alk"
+}

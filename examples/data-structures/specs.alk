@@ -1,0 +1,7 @@
+a=2;
+repeat
+    if (a%2==0)
+        choose x in [1..100];
+    failure;
+until (x==0);
+success;

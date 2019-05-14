@@ -1,0 +1,25 @@
+{
+    "name": "alk",
+    "displayName": "Alk",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "alk",
+            "aliases": ["Alk", "alk"],
+            "extensions": [".alk"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "alk",
+            "scopeName": "source.alk",
+            "path": "./syntaxes/alk.tmLanguage.json"
+        }]
+    }
+}
